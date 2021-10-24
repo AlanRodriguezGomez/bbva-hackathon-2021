@@ -1,0 +1,164 @@
+<div class="row" style="height: 140vh;">
+    <div class="col-md-3" style="background-color: #2dcccd;padding: 40px;">
+       <div class="row">
+            <div class="col-md-2">
+                <img src="assets/img/hackathon/icono_usuario_01.png"/>
+            </div>
+            <div class="col-md-10" style="padding-left: 30px;padding-top: 5px;">
+                <p class="p-item">Usuario #01254</p>
+                <a href="/editar_perfil" class="nav-link a-item">Editar perfil</a>
+            </div>
+       </div>
+       <hr style="border: 1px solid #c2cfe0;"/>
+       <ul class="navbar-nav mr-auto">
+        <li class="nav-item inactive-item" (click)="onDashboard()">
+          <a href="/perfil" class="nav-link item-a" routerLink="perfil"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Perfil</a>
+        </li>
+        <li class="nav-item inactive-item">
+          <a href="/configuracion" class="nav-link item-a" routerLink="configuracion"><img src="assets/img/hackathon/ion_settings-outline.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Configuración</a>
+        </li>
+        <li class="nav-item active-item">
+            <a href="/documentos" class="nav-link item-a" routerLink="documentos"><img src="assets/img/hackathon/bx_bx-note.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Documentos</a>
+        </li>
+        <li class="nav-item inactive-item">
+            <a href="/mi_empresa" class="nav-link item-a" routerLink="mi_empresa"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
+        </li> 
+      </ul>
+      <hr style="border: 1px solid #c2cfe0;"/>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item inactive-item">
+            <a href="/soporte" class="nav-link item-a" routerLink="soporte"><img src="assets/img/hackathon/feather_help-circle.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Soporte</a>
+        </li> 
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <div class="row" style="height: 456px;margin-top: 80px;margin-bottom: 100px;">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 login-card">
+          <div class="row">
+            <div class="col-md-6" style="padding: 30px;">
+              <div class="row">
+                <div class="col-md-12" style="padding: 30px;padding-top: 15px;">
+                  <form
+                  name="form"
+                  (ngSubmit)="f.form.valid && onSubmit()"
+                  #f="ngForm"
+                  novalidate
+                  style="position: relative;"
+                >
+                  <div class="form-group">
+                    <label for="cert" class="form-label">Certificado Cámara de Comercio</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      name="cert"
+                      [(ngModel)]="form.cert"
+                      required
+                      #cert="ngModel"
+                      (change)="fileBrowseHandler($event.target.files)"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      role="alert"
+                      *ngIf="cert.errors && f.submitted"
+                    >
+                      El certificado es requerido!
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="rut" class="form-label">Registro Único Tributario - RUT</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      name="rut"
+                      [(ngModel)]="form.rut"
+                      required
+                      #rut="ngModel"
+                      (change)="fileBrowseHandler($event.target.files)"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      role="alert"
+                      *ngIf="rut.errors && f.submitted"
+                    >
+                      <div *ngIf="rut.errors?.required">El archivo RUT es requerido!</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="cedula" class="form-label">Cédula Ciudadana</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      name="cedula"
+                      [(ngModel)]="form.cedula"
+                      required
+                      #cedula="ngModel"
+                      (change)="fileBrowseHandler($event.target.files)"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      role="alert"
+                      *ngIf="cedula.errors && f.submitted"
+                    >
+                      <div *ngIf="cedula.errors?.required">El archivo Cédula Ciudadana es requerido!</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="firma" class="form-label">Firma electrónica</label>
+                    <input
+                      type="file"
+                      id="firma"
+                      name="firma"
+                      class="form-control"
+                      [(ngModel)]="form.firma"
+                      required
+                      #firma="ngModel"
+                      (change)="fileBrowseHandler($event.target.files)"
+                    />
+                    <div class="alert-danger" *ngIf="firma.errors && f.submitted">
+                      <div *ngIf="firma.errors?.required">La Firma digital es requerida!</div>
+                    </div>
+                  </div>
+                  <div class="form-check" style="text-align: center;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault" style="font-size: 12px;color: #bdbbc8;">
+                      Acepto los términos y condiciones
+                    </label>
+                  </div>
+      
+                  <div class="row item-buttons" style="text-align: center;margin-top: 20px;">
+                    <div class="col-md-12">
+                      <button class="btn btn-blue" >Enviar Documentación</button>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                      Signup failed!<br />{{ errorMessage }}
+                    </div>
+                  </div>
+                </form>
+          
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" style="border-radius: 10px;box-shadow: lightgrey 0px 0px 16px 10px;">
+              <div class="row card-shadow">
+               <div class="col-md-12 item-txt">
+                <p class="items-list" style="color: white;margin: 0;"><fa-icon [icon]="faCheck" style="color: white !important;"></fa-icon>&nbsp;&nbsp;&nbsp;Certificado cámara de comercio</p>
+                <p class="items-list" style="color: white;margin: 0;"><fa-icon [icon]="faCheck" style="color: white !important;"></fa-icon>&nbsp;&nbsp;&nbsp;Registro único Tributario - RUT</p>
+                <p class="items-list" style="color: white;margin: 0;"><fa-icon [icon]="faCheck" style="color: white !important;"></fa-icon>&nbsp;&nbsp;&nbsp;Cédula Ciudadana representante legal</p>
+                <p class="items-list" style="color: white;margin: 0;"><fa-icon [icon]="faCheck" style="color: white !important;"></fa-icon>&nbsp;&nbsp;&nbsp;Firma electrónica</p>
+               </div>
+               <div class="col-md-12 item-text">
+                <p class="items-list" style="color: #0f3669;margin-bottom: 20px;">*Solo el representante legal puede realizar la apertura de cuenta digital.</p>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div> 
+    </div>
+</div>
+<ng-http-loader></ng-http-loader>
+

@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "BentoSansMedium";
+    src: local("BentoSansMedium"), url(./assets/fonts/BentonSans_Medium.otf) format("opentype");
+}
+
+body {
+    font-family: "BentoSansMedium";
+}

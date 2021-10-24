@@ -1,0 +1,46 @@
+<div id="app">
+  <nav class="navbar navbar-expand" style="padding: 10px; background-color: #0f3669;color: white !important;">
+    <a href="#" class="navbar-brand" style="margin-left: 30px;"><img src="assets/img/hackathon/Logo.png" width="120"></a>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link" style="text-transform: uppercase;color: #bdbbc8 !important;" routerLink="personas">Personas</a>
+      </li>
+      <li class="nav-item">
+        <a href="/landing" class="nav-link" style="text-transform: uppercase;" routerLink="landing">Empresas</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" routerLinkActive="active">
+      <li class="nav-item register">
+        <a href="/registrate" class="nav-link" routerLink="registrate"><fa-icon [icon]="faUser" style="color: white;"></fa-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registrate</a>
+      </li>
+      <li class="nav-item">
+        <div class="access">
+          <a href="/login" class="nav-link access" routerLink="login">Acceso</a>
+        </div>
+      </li>
+      <li class="search">
+        <a href="#"><fa-icon [icon]="faSearch" style="color: white !important;"></fa-icon></a>
+      </li>
+    </ul>
+
+    <!-- <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+       <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{
+          username
+        }}</a>
+      </li> 
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul> -->
+  </nav>
+
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+  <footer class="footer">
+    <span>Copyright &copy; 2021 The Coconuts Team.</span>
+  </footer>
+</div>

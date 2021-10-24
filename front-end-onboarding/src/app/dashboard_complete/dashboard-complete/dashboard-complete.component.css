@@ -1,0 +1,48 @@
+.active-item {
+    background: #88d8d8;
+    border-radius: 30px;
+}
+
+.circle-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.item-a {
+    font-size: 16px;
+    padding-left: 20px;
+    color: #687A92 !important;
+}
+
+.inactive-item {
+    background-color: transparent;
+}
+
+.a-item {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    font-size: 14px !important;
+}
+
+.p-item {
+    margin: 0 !important;
+    font-size: 14px !important;
+}
+
+
+.grafica {
+    position: absolute;
+    left: 113px;
+    top: 73px;
+}
+
+.vineta {
+    position: absolute;
+    left: 223px;
+    top: 103px;
+}
+
+.p-in p {
+    margin: 0;
+}

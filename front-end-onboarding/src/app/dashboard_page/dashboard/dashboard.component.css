@@ -1,0 +1,26 @@
+.active-item {
+    background: #88d8d8;
+    border-radius: 30px;
+}
+
+.item-a {
+    font-size: 16px;
+    padding-left: 20px;
+    color: #687A92 !important;
+}
+
+.inactive-item {
+    background-color: transparent;
+}
+
+.a-item {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    font-size: 14px !important;
+}
+
+.p-item {
+    margin: 0 !important;
+    font-size: 14px !important;
+}
+

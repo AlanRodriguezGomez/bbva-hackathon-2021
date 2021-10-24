@@ -1,0 +1,95 @@
+<div class="row" style="height: 100vh;">
+    <div class="col-md-3" style="background-color: #2dcccd;padding: 40px;">
+       <div class="row">
+            <div class="col-md-2">
+                <img src="assets/img/hackathon/icono_usuario_01.png"/>
+            </div>
+            <div class="col-md-10" style="padding-left: 30px;padding-top: 5px;">
+                <p class="p-item">Usuario #01254</p>
+                <a href="/editar_perfil" class="nav-link a-item">Editar perfil</a>
+            </div>
+       </div>
+       <hr style="border: 1px solid #c2cfe0;"/>
+       <ul class="navbar-nav mr-auto">
+        <li class="nav-item active-item">
+          <a href="/perfil" class="nav-link item-a" routerLink="perfil"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Perfil</a>
+        </li>
+        <li class="nav-item inactive-item">
+          <a href="/configuracion" class="nav-link item-a" routerLink="configuracion"><img src="assets/img/hackathon/ion_settings-outline.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Configuración</a>
+        </li>
+        <li class="nav-item inactive-item" (click)="onDocuments()">
+            <a href="/documentos" class="nav-link item-a" routerLink="documentos"><img src="assets/img/hackathon/bx_bx-note.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Documentos</a>
+        </li>
+        <li class="nav-item inactive-item">
+            <a href="/mi_empresa" class="nav-link item-a" routerLink="mi_empresa"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
+        </li> 
+      </ul>
+      <hr style="border: 1px solid #c2cfe0;"/>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item inactive-item">
+            <a href="/soporte" class="nav-link item-a" routerLink="soporte"><img src="assets/img/hackathon/feather_help-circle.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Soporte</a>
+        </li> 
+      </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+                <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <div style="width: 100%; height: 200px;background-image: url(assets/img/hackathon/icono_usuario_02.png);background-size: cover;" ></div>
+                    <button type="button" class="btn" style="width: 100%; background-color: #e1e7f0;color: #9da9bb;margin-top: 15px;font-size: 12px;">Editar mi perfil</button>
+                </div>
+                <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <p style="color: #687a92;margin-bottom: 5px;">Mi empresa</p>
+                    <p style="margin-bottom: 0;"><fa-icon [icon]="faPlusSquare" style="color: #2dcccd !important;"></fa-icon><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Datos de mi empresa</span></p>
+                </div>
+                <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <p style="color: #687a92;margin-bottom: 5px;">Mis proveedores</p>
+                    <p style="margin-bottom: 0;"><fa-icon [icon]="faPlusSquare" style="color: #2dcccd !important;"></fa-icon><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Agregar proveedor</span></p>
+                </div>
+                <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <p style="color: #687a92;margin-bottom: 5px;">Mis Documentos</p>
+                    <p style="margin-bottom: 0;"><fa-icon [icon]="faPlusSquare" style="color: #2dcccd !important;"></fa-icon><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Cargar Documentos</span></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <p style="font-size: 16px;color: #687a92;">User #01254</p>
+                    <hr />
+                    <img src="assets/img/hackathon/Perfil 01.png"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="assets/img/hackathon/Perfil 02.png"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="assets/img/hackathon/Perfil 03.png"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="assets/img/hackathon/Perfil 04.png"/>
+                    <hr />
+                    <p style="font-size: 16px; color: #687a92;margin-bottom: 5px;">Cuenta no verificada&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/img/hackathon/bx_bxs-badge-check.png"/></p>
+                    <p style="font-size: 11px;color: #9da9bb;">Para obtener el estado confirmado, debe completar el perfil al 100%. Consulta las recomendaciones para saber qué te queda por hacer.Si se cumplen todas las condiciones, se confirmará su estado.</p>
+                </div>
+                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;cursor: pointer;" (click)="onDocuments()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p style="font-size: 16px; color: #687a92;margin-bottom: 5px;">Cargar Documentos</p>
+                        </div>
+                        <div class="col-md-6" style="text-align: right;">
+                            <fa-icon [icon]="faFolderOpen" style="color: #9da9bb !important;font-size: 20px;"></fa-icon>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p style="font-size: 16px; color: #687a92;margin-bottom: 5px;">Cargar Firma Digital</p>
+                        </div>
+                        <div class="col-md-6" style="text-align: right;">
+                            <fa-icon [icon]="faPencilAlt" style="color: #9da9bb !important;font-size: 20px;"></fa-icon>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;margin-top: 10px; height: 200px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                   <img src="assets/img/hackathon/Perfil 01.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

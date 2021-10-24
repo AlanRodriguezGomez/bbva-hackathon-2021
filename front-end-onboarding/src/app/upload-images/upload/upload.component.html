@@ -1,0 +1,56 @@
+<div class="container">
+  <header class="jumbotron">
+    <h3 style="margin-bottom: 25px;">Subir Documentos</h3>
+    <div class="col-md-12" style="margin-top: 50px;">
+      <form name="form"
+                (ngSubmit)="f.form.valid && onSubmit()"
+                #f="ngForm"
+                novalidate
+                style="margin: 0 auto;width: 500px;"
+                >
+                <div
+                      class="alert alert-danger"
+                      role="alert"
+                      *ngIf="files.length == 0 && f.submitted"
+                    >
+                    Los archivos son requeridos.
+                  </div>
+                <div style="width: 500px !important;margin: 0 auto;margin-bottom: 30px;">
+                    <div class="card shadow" style="position: relative;">
+                      <div class="dropzone" appDragAndDrop (fileDropped)="onFileDropped($event)">
+                        <input type="file" #fileDropRef id="fileDropRef" multiple  (change)="fileBrowseHandler($event.target.files)"/>
+                        <img src="assets/img/dnd/ic-upload-file.svg" />
+                        <h3>Drag and Drop file here</h3>
+                        <h3>or</h3>
+                        <label for="fileDropRef">Browse for file</label>
+                    </div>
+                    <div class="files-list">
+                      <div class="row" *ngFor="let file of files; let i = index">
+                        <div class="single-file">
+                          <img src="assets/img/dnd/ic-file.svg" width="45px" alt="file">
+                          <div class="info">
+                            <h4 class="name">
+                              {{ file?.name }}
+                            </h4>
+                            <p class="size">
+                              {{ formatBytes(file?.size) }}
+                            </p>
+                            <app-progress [progress]="file?.progress"></app-progress>
+                          </div>
+                          <img src="assets/img/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="form-group">
+                  <button class="btn btn-primary btn-block col-md-6" style="margin: 0 auto;" [disabled]="files.length <= 0">
+                    Guardar
+                  </button>
+                </div>
+          </form>
+        </div>    
+  </header>
+</div>
+<ng-http-loader></ng-http-loader>

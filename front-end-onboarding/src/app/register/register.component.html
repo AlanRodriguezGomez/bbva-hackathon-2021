@@ -1,0 +1,154 @@
+<div class="row" style="height: 456px;margin-top: 80px;margin-bottom: 100px;">
+  <div class="col-md-1"></div>
+  <div class="col-md-10 login-card">
+    <div class="row">
+      <div class="col-md-6" style="padding: 30px;">
+        <div class="row">
+          <div class="col-md-12" style="padding: 70px;padding-top: 15px;">
+            <form
+            name="form"
+            (ngSubmit)="f.form.valid && onSubmit()"
+            #f="ngForm"
+            novalidate
+            style="position: relative;"
+          >
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control inputs"
+                name="pyme"
+                [(ngModel)]="form.pyme"
+                required
+                #pyme="ngModel"
+                placeholder="Nombre de la empresa"
+                autocomplete="disabled"
+              />
+              <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="pyme.errors && f.submitted"
+              >
+                Nombre de la empresa es requerida!
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control inputs"
+                name="nit"
+                [(ngModel)]="form.nit"
+                required
+                #nit="ngModel"
+                placeholder="NIT de la empresa"
+                autocomplete="disabled"
+              />
+              <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="nit.errors && f.submitted"
+              >
+                <div *ngIf="nit.errors?.required">El NIT es requerido!</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control inputs"
+                name="email"
+                [(ngModel)]="form.email"
+                required
+                #email="ngModel"
+                placeholder="Correo electro&oacute;nico"
+                autocomplete="disabled"
+              />
+              <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="email.errors && f.submitted"
+              >
+                <div *ngIf="email.errors?.required">El correo electrónico es requerido!</div>
+              </div>
+            </div>
+            <div class="form-group" 
+              [formGroup]="myForm"
+              >
+                <input
+                  type="text"
+                  class="form-control inputs"
+                  name="phone"
+                  formControlName="mob"
+                  required
+                  placeholder="Número telefónico"
+                  autocomplete="disabled"
+                />
+                <div *ngIf="m.mob.touched && m.mob.invalid && m.mob.errors && f.submitted" class="alert alert-danger">
+                  <div *ngIf="m.mob.errors?.required">Por favor proporcione un número de teléfono!</div>
+                  <div *ngIf="m.mob.errors?.pattern">El número telefónico no es de 10 digitos!</div>
+                </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control inputs"
+                name="password"
+                [(ngModel)]="form.password"
+                required
+                minlength="6"
+                #password="ngModel"
+                placeholder="Contrase&ntilde;a"
+              />
+              <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                <div *ngIf="password.errors?.required">La contraseña es requerida!</div>
+                <div *ngIf="password.errors?.minlength">
+                  La contraseña debe ser de al menos 6 caractéres!
+                </div>
+              </div>
+            </div>
+            <div class="form-check" style="text-align: center;">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault" style="font-size: 12px;color: #bdbbc8;">
+                Acepto los términos y condiciones
+              </label>
+            </div>
+
+            <div class="row item-buttons" style="text-align: center;margin-top: 50px;">
+              <div class="col-md-12">
+                <button class="btn btn-blue" [disabled]="!m.mob.valid">Crear cuenta</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                Signup failed!<br />{{ errorMessage }}
+              </div>
+            </div>
+          </form>
+    
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" style="background-image: url(assets/img/hackathon/Foto_Inicio_01.jpg); background-size: cover;border-radius: 10px;box-shadow: lightgrey 0px 0px 16px 10px;">
+        <div class="row card-shadow">
+         <div class="col-md-12 item-txt">
+          <p class="items-list" style="color: black;"><fa-icon [icon]="faCheck" style="color: black !important;"></fa-icon>&nbsp;&nbsp;&nbsp;Registro 100% digital</p>
+          <p class="items-list" style="color: black;"><fa-icon [icon]="faCheck" style="color: black !important;"></fa-icon>&nbsp;&nbsp;&nbsp;Verificación online</p>
+          <p class="items-list" style="color: black;"><fa-icon [icon]="faCheck" style="color: black !important;"></fa-icon>&nbsp;&nbsp;&nbsp;Firma online de transacciones</p>
+         </div>
+         <div class="col-md-12 item-text">
+          <p class="items-list" style="color: white;margin-bottom: 20px;">*Solo el representante legal puede realizar la apertura de cuenta digital.</p>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<ng-http-loader></ng-http-loader>
+
+
+
+
+
+
+
+
+

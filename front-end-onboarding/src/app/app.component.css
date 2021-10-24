@@ -1,0 +1,41 @@
+.nav-item a {
+    color: white !important;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.footer {
+    text-align: center;
+    background-color: #0f3669;
+    color: white;
+    padding: 20px;
+}
+
+.register a {
+    width: 120px;
+    color: #bdbbc8 !important;
+    transition: 0.5s;
+}
+
+.register:hover a {
+    color: white !important;
+}
+
+.search {
+    width: 70px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.access {
+    width: 100px;
+    background-color: #2DCCCD !important;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.access:hover a {
+    color: #2DCCCD !important;
+    background-color: white !important;
+}

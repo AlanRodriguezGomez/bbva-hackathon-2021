@@ -1,0 +1,107 @@
+<div class="row" style="height: 150vh;">
+    <div class="col-md-3" style="background-color: #2dcccd;padding: 40px;">
+       <div class="row">
+            <div class="col-md-2">
+                <div class="circle-image" style="background-image: url(assets/img/hackathon/Tobey_Maguire_2014.jpg);background-size: cover;"></div>
+            </div>
+            <div class="col-md-10" style="padding-left: 40px;padding-top: 5px;">
+                <p class="p-item">Juan Gómez</p>
+                <a href="/editar_perfil" class="nav-link a-item">{{email}}</a>
+            </div>
+       </div>
+       <hr style="border: 1px solid #c2cfe0;"/>
+       <ul class="navbar-nav mr-auto">
+        <li class="nav-item active-item">
+          <a href="/perfil" class="nav-link item-a" routerLink="perfil"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Perfil</a>
+        </li>
+        <li class="nav-item inactive-item">
+          <a href="/configuracion" class="nav-link item-a" routerLink="configuracion"><img src="assets/img/hackathon/ion_settings-outline.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Configuración</a>
+        </li>
+        <li class="nav-item inactive-item" (click)="onDocuments()">
+            <a href="/documentos" class="nav-link item-a" routerLink="documentos"><img src="assets/img/hackathon/bx_bx-note.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Documentos</a>
+        </li>
+        <li class="nav-item inactive-item">
+            <a href="/mi_empresa" class="nav-link item-a" routerLink="mi_empresa"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
+        </li> 
+      </ul>
+      <hr style="border: 1px solid #c2cfe0;"/>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item inactive-item">
+            <a href="/soporte" class="nav-link item-a" routerLink="soporte"><img src="assets/img/hackathon/feather_help-circle.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Soporte</a>
+        </li> 
+      </ul>
+    </div>
+    <div class="col-md-9">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+                <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <div class="circle-image" style="background-image: url(assets/img/hackathon/Tobey_Maguire_2014.jpg);background-size: cover;width: 200px;height: 200px;margin: 0 auto;"></div>
+                    <button type="button" class="btn" style="width: 100%; background-color: #e1e7f0;color: #9da9bb;margin-top: 15px;font-size: 12px;">Editar mi perfil</button>
+                </div>
+                <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <p style="color: #687a92;margin-bottom: 5px;">Mi empresa</p>
+                    <p style="margin-bottom: 0;"><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;PGM y Asociados</span></p>
+                </div>
+                <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <p style="color: #687a92;margin-bottom: 5px;">Mis proveedores</p>
+                    <p style="margin-bottom: 0;"><img src="assets/img/hackathon/bx_bxs-badge-check-1.png"/><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Postobón</span></p>
+                    <p style="margin-bottom: 0;"><img src="assets/img/hackathon/bx_bxs-badge-check-1.png"/><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Colpensiones</span></p>
+                    <p style="margin-bottom: 0;"><fa-icon [icon]="faPlusSquare" style="color: #2dcccd !important;"></fa-icon><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Agregar proveedor</span></p>
+                </div>
+                <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <p style="color: #687a92;margin-bottom: 5px;">Mis Documentos</p>
+                    <p style="margin-bottom: 0;"><img src="assets/img/hackathon/bx_bxs-badge-check-1.png"/><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Cámara de Comercio</span></p>
+                    <p style="margin-bottom: 0;"><img src="assets/img/hackathon/bx_bxs-badge-check-1.png"/><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;RUT</span></p>
+                    <p style="margin-bottom: 0;"><img src="assets/img/hackathon/bx_bxs-badge-check-1.png"/><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Cédula Ciudadana representante legal</span></p>
+                    <p style="margin-bottom: 0;"><img src="assets/img/hackathon/bx_bxs-badge-check-1.png"/><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Firma Digital</span></p>
+                    <p style="margin-bottom: 0;"><fa-icon [icon]="faPlusSquare" style="color: #2dcccd !important;"></fa-icon><span style="font-size: 11px;color: #9da9bb;">&nbsp;&nbsp;&nbsp;&nbsp;Cargar Documentos</span></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                    <p style="font-size: 16px;color: #687a92;">{{pyme}}</p>
+                    <p style="font-size: 14px;color: #9da9bb;">Teléfono: <span style="margin-left: 150px;">{{phone}}</span></p>
+                    <p style="font-size: 14px;color: #9da9bb;">Email: <span style="margin-left: 170px;">{{email}}</span></p>
+                    <p style="font-size: 14px;color: #9da9bb;">NIT: <span style="margin-left: 185px;">{{nit}}</span></p>
+                    <p style="font-size: 14px;color: #9da9bb;">Dirección: <span style="margin-left: 145px;">Calle 31 #47</span></p>
+                    <p style="font-size: 14px;color: #9da9bb;">Representante:<span style="margin-left: 110px;">Juan Gómez</span></p>
+                    <p style="font-size: 16px;color: #687a92;">Cuenta Verificada &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/img/hackathon/bx_bxs-badge-check-1.png"/></p>
+                </div>
+                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;cursor: pointer;position: relative;text-align: center;">
+                    <p style="font-size: 16px;color: #687a92;text-align: left;margin-bottom: 20px;">Resumen</p>
+                    <img src="assets/img/hackathon/Resumen dash.png"/>
+                    <img src="assets/img/hackathon/Chart.png" class="grafica"/>
+                    <img src="assets/img/hackathon/Details.png" class="vineta"/>
+                </div>
+               <div class="row">
+                    <div class="col-md-6">
+                        <div class="p-in" style="width: 100%;border: 2px solid #eff0fa;padding: 10px;box-shadow: lightgrey 0px 0px 14px 2px;margin-top: 10px;">
+                            <p style="font-size: 16px;color: #687a92;">Mi balance</p>
+                            <p style="font-size: 11px;color: #9da9bb;">Cuenta corriente *5930</p>
+                            <p style="font-size: 20px;color: #2dcccd;">$ 120,345,789</p>
+                            <p style="font-size: 11px;color: #9da9bb;">Trjeta de crédito *8741</p>
+                            <p style="font-size: 20px;color: #2dcccd;">$ 19,371,920</p>
+                            <p style="font-size: 11px;color: #9da9bb;">Prestamo libre inversión *7193</p>
+                            <p style="font-size: 20px;color: #2dcccd;">$ 35,923,129</p>
+                            <p style="font-size: 11px;color: #9da9bb;">Fiduciaria *7606</p>
+                            <p style="font-size: 20px;color: #2dcccd;">$ 56,934,761</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-in" style="width: 100%;border: 2px solid #eff0fa;padding: 10px;box-shadow: lightgrey 0px 0px 14px 2px;margin-top: 10px;position: relative;">
+                            <p style="font-size: 16px;color: #687a92; margin-bottom: 10px;">Mi balance</p>
+                            <img src="assets/img/hackathon/icon aqua.png" style="position: absolute;"/>
+                            <p style="font-size: 11px;color: #9da9bb;padding-left: 70px;">Ingreso</p>
+                            <p style="font-size: 20px;color: #2dcccd;padding-left: 70px;">$ 45,629,478</p>
+                            <img src="assets/img/hackathon/chart aqua.png" style="width: 100%;"/>
+                            <img src="assets/img/hackathon/icon blue.png" style="position: absolute;left:10px;top:171px;"/>
+                            <p style="font-size: 11px;color: #9da9bb;padding-left: 70px;">Ingreso</p>
+                            <p style="font-size: 20px;color: #0f3669;padding-left: 70px;">$ 32,123,521</p>
+                            <img src="assets/img/hackathon/chart blue.png" style="width: 100%;"/>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
