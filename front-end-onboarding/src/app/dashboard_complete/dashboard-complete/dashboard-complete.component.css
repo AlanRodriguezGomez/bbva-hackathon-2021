@@ -70,3 +70,9 @@
         left: 150px;
     }
 }
+
+@media (max-width: 767px) {
+    .item-dashcompl {
+        min-height: 480vh;
+    }
+}

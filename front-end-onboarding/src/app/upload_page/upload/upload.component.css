@@ -184,4 +184,16 @@
     padding-bottom: 0px !important;
   }
 } 
+
+@media (max-width: 767px) {
+  .item-docs {
+    height: auto !important;
+  }
+  .item-regs-docs {
+    min-height: 300vh;
+  }
+  .item-menu {
+    padding-bottom: 0px !important;
+  }
+} 
   
