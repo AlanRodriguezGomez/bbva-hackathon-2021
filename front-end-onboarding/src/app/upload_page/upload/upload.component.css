@@ -178,7 +178,7 @@
     height: auto !important;
   }
   .item-regs-docs {
-    min-height: 220vh;
+    min-height: 220vh !important;
   }
   .item-menu {
     padding-bottom: 0px !important;
@@ -190,7 +190,7 @@
     height: auto !important;
   }
   .item-regs-docs {
-    min-height: 300vh;
+    min-height: 300vh !important;
   }
   .item-menu {
     padding-bottom: 0px !important;

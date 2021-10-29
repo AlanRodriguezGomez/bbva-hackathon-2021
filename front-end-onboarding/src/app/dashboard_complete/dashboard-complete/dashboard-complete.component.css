@@ -55,24 +55,24 @@
 
 @media (max-width: 565px) {
     .item-dashcompl {
-        min-height: 300vh;
+        min-height: 300vh !important;
     }
 
     .item-graph {
-        overflow: scroll;
+        overflow: scroll !important;
     }
 
     .grafica {
-        left: 50px;
+        left: 50px !important;
     }
 
     .vineta {
-        left: 150px;
+        left: 150px !important;
     }
 }
 
 @media (max-width: 767px) {
     .item-dashcompl {
-        min-height: 480vh;
+        min-height: 480vh !important;
     }
 }

@@ -62,10 +62,10 @@
 
 @media (max-width: 575px) { 
     .box-item {
-        margin-top: 10px;
+        margin-top: 10px !important;
     }
     .img-land {
-        margin-top: 20px;
+        margin-top: 20px !important;
     }
 
     .item-one {
@@ -73,31 +73,31 @@
     }
 
     .item-med {
-        margin-top: 10px;
+        margin-top: 10px !important;
     }
 
     .boxes-one {
-        margin-top: 40px;
+        margin-top: 40px !important;
     }
 }
 
 @media (max-width: 767px) {
     .box-item {
-        margin-top: 10px;
+        margin-top: 10px !important;
     }
     .img-land {
-        margin-top: 20px;
+        margin-top: 20px !important;
     }
     .item-one {
         padding-top: 50px !important;
     }
 
     .item-med {
-        margin-top: 10px;
+        margin-top: 10px !important;
     }
 
     .boxes-two {
-        margin-top: 40px;
+        margin-top: 40px !important;
     }
 
     .item-text-prof {
