@@ -1,34 +1,37 @@
-<div class="row" style="height: 150vh;">
+<div class="row item-dashcompl" style="height: 150vh;">
     <div class="col-md-3" style="background-color: #2dcccd;padding: 40px;">
        <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-2 col-2">
                 <div class="circle-image" style="background-image: url(assets/img/hackathon/Tobey_Maguire_2014.jpg);background-size: cover;"></div>
             </div>
-            <div class="col-md-10" style="padding-left: 40px;padding-top: 5px;">
+            <div class="col-md-10 col-sm-10 col-10" style="padding-left: 40px;padding-top: 5px;">
                 <p class="p-item">Juan Gómez</p>
                 <a href="/editar_perfil" class="nav-link a-item">{{email}}</a>
             </div>
        </div>
        <hr style="border: 1px solid #c2cfe0;"/>
        <ul class="navbar-nav mr-auto">
-        <li class="nav-item active-item">
-          <a href="/perfil" class="nav-link item-a" routerLink="perfil"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Perfil</a>
+        <li class="nav-item active-item" (click)="onDashboard()">
+          <a class="nav-link item-a"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Perfil</a>
         </li>
         <li class="nav-item inactive-item">
           <a href="/configuracion" class="nav-link item-a" routerLink="configuracion"><img src="assets/img/hackathon/ion_settings-outline.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Configuración</a>
         </li>
         <li class="nav-item inactive-item" (click)="onDocuments()">
-            <a href="/documentos" class="nav-link item-a" routerLink="documentos"><img src="assets/img/hackathon/bx_bx-note.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Documentos</a>
+            <a class="nav-link item-a"><img src="assets/img/hackathon/bx_bx-note.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Documentos</a>
         </li>
-        <li class="nav-item inactive-item">
-            <a href="/mi_empresa" class="nav-link item-a" routerLink="mi_empresa"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
+        <li class="nav-item inactive-item" (click)="onDashboardComplete()">
+            <a class="nav-link item-a"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
         </li> 
       </ul>
       <hr style="border: 1px solid #c2cfe0;"/>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item inactive-item">
             <a href="/soporte" class="nav-link item-a" routerLink="soporte"><img src="assets/img/hackathon/feather_help-circle.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Soporte</a>
-        </li> 
+        </li>
+        <li class="nav-item inactive-item">
+            <a class="nav-link item-a" (click)="onLogout()"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Log out</a>
+        </li>  
       </ul>
     </div>
     <div class="col-md-9">
@@ -67,7 +70,7 @@
                     <p style="font-size: 14px;color: #9da9bb;">Representante:<span style="margin-left: 110px;">Juan Gómez</span></p>
                     <p style="font-size: 16px;color: #687a92;">Cuenta Verificada &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="assets/img/hackathon/bx_bxs-badge-check-1.png"/></p>
                 </div>
-                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;cursor: pointer;position: relative;text-align: center;">
+                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;cursor: pointer;position: relative;text-align: center;" class="item-graph">
                     <p style="font-size: 16px;color: #687a92;text-align: left;margin-bottom: 20px;">Resumen</p>
                     <img src="assets/img/hackathon/Resumen dash.png"/>
                     <img src="assets/img/hackathon/Chart.png" class="grafica"/>

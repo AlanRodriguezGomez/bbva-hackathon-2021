@@ -3,6 +3,7 @@ import { faPlusSquare, faFolderOpen, faPencilAlt } from '@fortawesome/free-solid
 import { TokenStorageService } from '../../_services/token-storage.service';
 import { EventBusService } from '../../_shared/event-bus.service';
 import { EventData } from '../../_shared/event.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-complete',
@@ -21,7 +22,7 @@ export class DashboardCompleteComponent implements OnInit {
   email: string;
 
 
-  constructor(private token: TokenStorageService, private eventBusService: EventBusService) { }
+  constructor(private token: TokenStorageService, private eventBusService: EventBusService, private router: Router) { }
 
   ngOnInit(): void {
     if(this.token.getToken() == null){
@@ -36,7 +37,19 @@ export class DashboardCompleteComponent implements OnInit {
   }
 
   onDocuments() {
-    window.location.href="/documentos";
+    this.router.navigate(['/documentos']);
+  }
+
+  onLogout() {
+    this.eventBusService.emit(new EventData('logout', null));
+  }
+
+  onDashboard() {
+    this.router.navigate(['/dashboard/complete']);
+  }
+
+  onDashboardComplete() {
+    this.router.navigate(['/dashboard/complete']);
   }
 
 }

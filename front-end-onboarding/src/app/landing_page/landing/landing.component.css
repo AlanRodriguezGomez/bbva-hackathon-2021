@@ -59,3 +59,24 @@
     background-color: white !important;
     box-shadow: 0px 0px 10px 5px;
 }
+
+@media (max-width: 575px) { 
+    .box-item {
+        margin-top: 10px;
+    }
+    .img-land {
+        margin-top: 20px;
+    }
+
+    .item-one {
+        padding-top: 50px !important;
+    }
+
+    .item-med {
+        margin-top: 10px;
+    }
+
+    .boxes-one {
+        margin-top: 40px;
+    }
+}

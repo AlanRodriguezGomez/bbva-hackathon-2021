@@ -1,30 +1,27 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
-//const API_URL = 'http://localhost:8588/api/test/';
-const API_URL = 'http://3.85.29.105:8582/api/test/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient) { }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
-  }
+  private subject = new BehaviorSubject<any>({});
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
-  }
+  constructor () { }
 
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
+  sendData(message: any) {
+      this.subject.next(message);
   }
-
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+  
+  clearData() {
+      this.subject.next({});
   }
+  
+  getData(): Observable<any> {
+      return this.subject.asObservable();
+  }
+  
 }

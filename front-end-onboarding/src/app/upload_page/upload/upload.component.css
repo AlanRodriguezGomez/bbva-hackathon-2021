@@ -9,10 +9,6 @@
     color: #687A92 !important;
 }
 
-.inactive-item {
-    background-color: transparent;
-}
-
 .a-item {
     padding-top: 0 !important;
     padding-left: 0 !important;
@@ -70,6 +66,7 @@
   .items-list {
     width: 100%;
     height: 30px;
+    font-size: 16px;
   }
   
   .item-text {
@@ -132,5 +129,59 @@
   }
   
   
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+  }
   
+  .btn_upload {
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    color: #687A92;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
 
+  .error-labels {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  ::ng-deep .modal-content {
+    border-radius: 20px !important;
+  }
+
+  .inactive-item {
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.inactive-item:hover {
+    background-color: #88d8d8 !important;
+    border-radius: 30px;
+}
+
+@media (max-width: 565px) {
+  .item-docs {
+    height: auto !important;
+  }
+  .item-regs-docs {
+    min-height: 220vh;
+  }
+  .item-menu {
+    padding-bottom: 0px !important;
+  }
+} 
+  

@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { LandingComponent } from './landing_page/landing/landing.component';
 import { DashboardComponent } from './dashboard_page/dashboard/dashboard.component';
 import { UploadComponent } from './upload_page/upload/upload.component';
@@ -11,7 +10,6 @@ import { DashboardCompleteComponent } from './dashboard_complete/dashboard-compl
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registrate', component: RegisterComponent },
   { path: 'dashboard/complete', component: DashboardCompleteComponent },

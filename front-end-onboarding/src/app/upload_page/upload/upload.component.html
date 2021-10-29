@@ -1,11 +1,11 @@
-<div class="row" style="height: 140vh;">
-    <div class="col-md-3" style="background-color: #2dcccd;padding: 40px;">
+<div class="row item-regs-docs" style="height: 140vh;">
+    <div class="col-md-3 item-menu" style="background-color: #2dcccd;padding: 40px;">
        <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-2 col-2">
                 <img src="assets/img/hackathon/icono_usuario_01.png"/>
             </div>
-            <div class="col-md-10" style="padding-left: 30px;padding-top: 5px;">
-                <p class="p-item">Usuario #01254</p>
+            <div class="col-md-10 col-sm-10 col-10" style="padding-left: 30px;padding-top: 5px;">
+                <p class="p-item">Juan Gómez</p>
                 <a href="/editar_perfil" class="nav-link a-item">Editar perfil</a>
             </div>
        </div>
@@ -21,7 +21,7 @@
             <a href="/documentos" class="nav-link item-a" routerLink="documentos"><img src="assets/img/hackathon/bx_bx-note.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Documentos</a>
         </li>
         <li class="nav-item inactive-item">
-            <a href="/mi_empresa" class="nav-link item-a" routerLink="mi_empresa"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
+            <a class="nav-link item-a" (click)="onDashboardComplete()"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
         </li> 
       </ul>
       <hr style="border: 1px solid #c2cfe0;"/>
@@ -29,16 +29,20 @@
         <li class="nav-item inactive-item">
             <a href="/soporte" class="nav-link item-a" routerLink="soporte"><img src="assets/img/hackathon/feather_help-circle.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Soporte</a>
         </li> 
+        <li class="nav-item inactive-item">
+          <a class="nav-link item-a" (click)="onLogout()"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Log out</a>
+      </li> 
       </ul>
     </div>
     <div class="col-md-9">
-      <div class="row" style="height: 456px;margin-top: 80px;margin-bottom: 100px;">
+      <div class="row item-docs" style="height: 456px;margin-top: 80px;margin-bottom: 100px;">
         <div class="col-md-1"></div>
         <div class="col-md-10 login-card">
           <div class="row">
             <div class="col-md-6" style="padding: 30px;">
               <div class="row">
                 <div class="col-md-12" style="padding: 30px;padding-top: 15px;">
+                  <p style="font-size: 14px;padding-left: 20px; color: #687A92 !important;">Los documentos deben ser cargados en formato PDF y no ser mayores a 30 dias.</p>
                   <form
                   name="form"
                   (ngSubmit)="f.form.valid && onSubmit()"
@@ -47,18 +51,18 @@
                   style="position: relative;"
                 >
                   <div class="form-group">
-                    <label for="cert" class="form-label">Certificado Cámara de Comercio</label>
-                    <input
-                      type="file"
-                      class="form-control"
-                      name="cert"
-                      [(ngModel)]="form.cert"
-                      required
-                      #cert="ngModel"
-                      (change)="fileBrowseHandler($event.target.files)"
-                    />
+                    <div class="upload-btn-wrapper">
+                      <button class="btn_upload">{{fileNames[0]}}</button>
+                      <input 
+                          type="file" 
+                          name="cert"
+                          [(ngModel)]="form.cert"
+                          required
+                          #cert="ngModel"
+                          (change)="fileBrowseHandler($event.target.files)"/>
+                    </div>
                     <div
-                      class="alert alert-danger"
+                      class="alert alert-danger error-labels"
                       role="alert"
                       *ngIf="cert.errors && f.submitted"
                     >
@@ -66,18 +70,18 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="rut" class="form-label">Registro Único Tributario - RUT</label>
-                    <input
-                      type="file"
-                      class="form-control"
-                      name="rut"
-                      [(ngModel)]="form.rut"
-                      required
-                      #rut="ngModel"
-                      (change)="fileBrowseHandler($event.target.files)"
-                    />
+                    <div class="upload-btn-wrapper">
+                      <button class="btn_upload">{{fileNames[1]}}</button>
+                      <input 
+                          type="file" 
+                          name="rut"
+                          [(ngModel)]="form.rut"
+                          required
+                          #rut="ngModel"
+                          (change)="fileBrowseHandler($event.target.files)"/>
+                    </div>
                     <div
-                      class="alert alert-danger"
+                      class="alert alert-danger error-labels"
                       role="alert"
                       *ngIf="rut.errors && f.submitted"
                     >
@@ -85,18 +89,18 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="cedula" class="form-label">Cédula Ciudadana</label>
-                    <input
-                      type="file"
-                      class="form-control"
-                      name="cedula"
-                      [(ngModel)]="form.cedula"
-                      required
-                      #cedula="ngModel"
-                      (change)="fileBrowseHandler($event.target.files)"
-                    />
+                    <div class="upload-btn-wrapper">
+                      <button class="btn_upload">{{fileNames[2]}}</button>
+                      <input 
+                          type="file" 
+                          name="cedula"
+                          [(ngModel)]="form.cedula"
+                          required
+                          #cedula="ngModel"
+                          (change)="fileBrowseHandler($event.target.files)"/>
+                    </div>
                     <div
-                      class="alert alert-danger"
+                      class="alert alert-danger error-labels"
                       role="alert"
                       *ngIf="cedula.errors && f.submitted"
                     >
@@ -104,29 +108,38 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="firma" class="form-label">Firma electrónica</label>
-                    <input
-                      type="file"
-                      id="firma"
-                      name="firma"
-                      class="form-control"
-                      [(ngModel)]="form.firma"
-                      required
-                      #firma="ngModel"
-                      (change)="fileBrowseHandler($event.target.files)"
-                    />
-                    <div class="alert-danger" *ngIf="firma.errors && f.submitted">
+                    <div class="upload-btn-wrapper">
+                      <button class="btn_upload">{{fileNames[3]}}</button>
+                      <input 
+                          type="file" 
+                          name="firma"
+                          [(ngModel)]="form.firma"
+                          required
+                          #firma="ngModel"
+                          (change)="fileBrowseHandler($event.target.files)"/>
+                    </div>
+                    <div class="alert alert-danger error-labels" *ngIf="firma.errors && f.submitted">
                       <div *ngIf="firma.errors?.required">La Firma digital es requerida!</div>
                     </div>
                   </div>
                   <div class="form-check" style="text-align: center;">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input"
+                           type="checkbox" 
+                           id="flexCheckDefault"
+                           name="terms"
+                           [(ngModel)]="form.terms"
+                           required
+                           #terms="ngModel"
+                    >
                     <label class="form-check-label" for="flexCheckDefault" style="font-size: 12px;color: #bdbbc8;">
                       Acepto los términos y condiciones
                     </label>
                   </div>
+                  <div class="alert alert-danger error-labels" *ngIf="terms.errors && f.submitted">
+                    <div>Acepte los términos y condiciones para continuar!</div>
+                  </div>
       
-                  <div class="row item-buttons" style="text-align: center;margin-top: 20px;">
+                  <div class="row item-buttons" style="text-align: center;margin: 12px auto;">
                     <div class="col-md-12">
                       <button class="btn btn-blue" >Enviar Documentación</button>
                     </div>

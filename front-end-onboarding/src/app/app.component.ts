@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TokenStorageService } from './_services/token-storage.service';
 import { EventBusService } from './_shared/event-bus.service';
-import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser, faBars } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { UserService } from './_services/user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,15 +14,20 @@ import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent implements OnInit {
   isLoggedIn = false;
+  isSuccessfulSignedUp = false;
   username?: string;
 
   faSearch = faSearch;
   faUser = faUser;
+  faBars = faBars;
+
+  navbarOpen = false;
+
 
   eventBusSub?: Subscription;
 
 
-  constructor(private tokenStorageService: TokenStorageService, private eventBusService: EventBusService) {}
+  constructor(private tokenStorageService: TokenStorageService, private eventBusService: EventBusService, private router: Router, private ds: UserService) {}
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -34,6 +42,15 @@ export class AppComponent implements OnInit {
       this.logout();
     });
 
+    this.eventBusSub = this.eventBusService.on('signedUp', () => {
+      this.navbarOpen = false;
+      console.log('Toggled!');
+    });
+
+    this.eventBusSub = this.eventBusService.on('loggedIn', (value: boolean) => {
+      this.isLoggedIn = value;
+    })
+
   }
 
   ngOnDestroy(): void {
@@ -45,6 +62,11 @@ export class AppComponent implements OnInit {
     this.tokenStorageService.signOut();
 
     this.isLoggedIn = false;
-    window.location.href='/login';
+    this.router.navigate(['/landing']);
+    this.navbarOpen = false;
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 }

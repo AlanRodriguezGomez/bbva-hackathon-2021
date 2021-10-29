@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { TestService } from '../_services/test.service';
 import { SpinnerVisibilityService } from 'ng-http-loader';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-
+import { UserService } from '../_services/user.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { EventBusService } from '../_shared/event-bus.service';
+import { EventData } from '../_shared/event.class';
 
 
 @Component({
@@ -20,32 +23,44 @@ export class LoginComponent implements OnInit {
     username: null,
     password: null
   };
+  isSuccessfulSignedUp = false;
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   names = '';
+  dataPassed: any;
+  subscription: Subscription;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private testService: TestService, private spinner: SpinnerVisibilityService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private spinner: SpinnerVisibilityService, private ds: UserService, private router: Router, private eventBusService:EventBusService) {
+     // subscribe to home component messages
+     this.subscription = this.ds.getData().subscribe(x => {                  
+       this.dataPassed = x; 
+     });
+     console.log('data-passed',this.dataPassed);
+     this.eventBusService.emit(new EventData('signedUp', null));
+     this.eventBusService.emit(new EventData('loggedIn', false));
+   }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      //this.roles = this.tokenStorage.getUser().roles;
       const user = this.tokenStorage.getUser();
       this.names = user.first_name + ' ' + user.last_name;
     }
-    /*this.testService.getPublicContent().subscribe(
-      data => {
-        console.log('data response',data);
-      },
-      err => {
-        console.log('error message',err.error.message);
-      }
-    );*/
+
+    if(this.dataPassed !== undefined) {
+        this.isSuccessfulSignedUp = this.dataPassed.isSuccessfulSignedUp;
+    }
+
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
   }
 
   onRegister(): void {
-    window.location.href="/registrate";
+    this.router.navigate(['/registrate']);
   }
 
   onSubmit(): void {
@@ -65,7 +80,8 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.spinner.hide();
-        this.reloadPage();
+        this.ds.sendData({ isLoggedIn: true});
+        this.router.navigate(['/dashboard']);
       },
       err => {
         this.spinner.hide();
@@ -73,9 +89,5 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
-  }
-
-  reloadPage(): void {
-    window.location.href="/dashboard";
   }
 }

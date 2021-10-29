@@ -7,7 +7,7 @@ import { EventBusService } from '../../_shared/event-bus.service';
 import { EventData } from '../../_shared/event.class';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { MyBootstrapModalComponent } from 'src/app/modals/my-bootstrap-modal/my-bootstrap-modal.component';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -21,6 +21,7 @@ export class UploadComponent implements OnInit {
     rut: null,
     cedula: null,
     firma: null,
+    terms: false
   };
 
   closeModal: string;
@@ -28,6 +29,7 @@ export class UploadComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  fileNames = ['Certificado Cámara de Comercio','Registro Único Tributario - RUT','Cédula Ciudadana','Firma electrónica'];
 
   faCheck = faCheck;
 
@@ -35,7 +37,7 @@ export class UploadComponent implements OnInit {
   
   modalRef: any;
 
-  constructor(private uploadService: UploadService, private token: TokenStorageService,private spinner: SpinnerVisibilityService, private eventBusService: EventBusService, private modalService: NgbModal) { }
+  constructor(private uploadService: UploadService, private token: TokenStorageService,private spinner: SpinnerVisibilityService, private eventBusService: EventBusService, private modalService: NgbModal, private router: Router) { }
 
   ngOnInit(): void {
     if(this.token.getToken() == null){
@@ -44,11 +46,11 @@ export class UploadComponent implements OnInit {
   }
 
   triggerModal() {
-    this.modalService.open(MyBootstrapModalComponent).result.then((res) => {
+    this.modalService.open(MyBootstrapModalComponent,{ centered: true, modalDialogClass: 'custom-modal' }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
-      window.location.href="/dashboard/complete";
+      this.router.navigate(['/dashboard/complete']);
     });
   }
 
@@ -69,7 +71,7 @@ export class UploadComponent implements OnInit {
   /**
    * handle file from browsing
    */
-   fileBrowseHandler(files: any) {
+   fileBrowseHandler(files: any) { 
     this.prepareFilesList(files);
   }
 
@@ -79,7 +81,6 @@ export class UploadComponent implements OnInit {
    */
    prepareFilesList(files: Array<any>) {
     for (const item of files) {
-      item.progress = 0;
       this.files.push(item);
     }
   }
@@ -108,7 +109,15 @@ export class UploadComponent implements OnInit {
   }
 
   onDashboard() {
-    window.location.href="/dashboard";
+    this.router.navigate(['/dashboard']);
+  }
+
+  onLogout() {
+    this.eventBusService.emit(new EventData('logout', null));
+  }
+
+  onDashboardComplete() {
+    this.router.navigate(['/dashboard/complete']);
   }
 
 }

@@ -1,4 +1,101 @@
-<div class="row" style="height: 456px;margin-top: 80px;margin-bottom: 100px;">
+<div class="container">
+
+  <div class="row" style="min-height: 456px;margin-top: 80px;margin-bottom: 100px;" *ngIf="!isSuccessfulSignedUp">
+
+     <div class="col-md-12">
+      <div class="row" style="margin-bottom: 50px;">
+        <div class="col-md-12">
+          <h3 style="text-transform: uppercase;color: #0f3669;text-align: center;">¡Bienvenido!</h3>
+        </div>
+      </div>
+     </div>
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 login-card">
+            <div class="row">
+              <div class="col-md-12" style="padding: 60px;">
+                <form
+                  name="form"
+                  (ngSubmit)="f.form.valid && onSubmit()"
+                  #f="ngForm"
+                  novalidate
+                  style="position: relative;"
+                >
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control inputs"
+                      name="username"
+                      [(ngModel)]="form.username"
+                      required
+                      #username="ngModel"
+                      placeholder="Correo electrónico"
+                      autocomplete="disabled"
+                    />
+                    <div
+                      class="alert alert-danger error-labels"
+                      role="alert"
+                      *ngIf="username.errors && f.submitted"
+                    >
+                      El correo electrónico es requerido!
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      class="form-control inputs"
+                      name="password"
+                      [(ngModel)]="form.password"
+                      required
+                      minlength="6"
+                      #password="ngModel"
+                      placeholder="Contraseña"
+                      autocomplete="disabled"
+                    />
+                    <div
+                      class="alert alert-danger error-labels"
+                      role="alert"
+                      *ngIf="password.errors && f.submitted"
+                    >
+                      <div *ngIf="password.errors?.required">La contraseña es requerida!</div>
+                      <div *ngIf="password.errors?.minlength">
+                        La contraseña debe ser de al menos 6 caractéres!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12" style="text-align: center;margin-top: 20px;">
+                      <a href="#" style="font-size: 12px;">¿Olvidaste tu contraseña?</a>
+                    </div>
+                  </div>
+                  <div class="row" style="text-align: center;margin-top: 10px;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                      <button class="btn btn-blue">Iniciar sesi&oacute;n</button>
+                    </div>
+                    <div class="col-md-1"></div>
+                  </div>
+                  <div class="form-group">
+                    <div
+                      class="alert alert-danger"
+                      role="alert"
+                      *ngIf="f.submitted && isLoginFailed"
+                    >
+                      Login failed: {{ errorMessage }}
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row" style="min-height: 456px;margin-top: 80px;margin-bottom: 100px;" *ngIf="isSuccessfulSignedUp">
     <div class="col-md-1"></div>
     <div class="col-md-10 login-card">
       <div class="row">
@@ -102,5 +199,6 @@
       </div>
     </div>
     <div class="col-md-1"></div>
+</div>
 </div>
 <ng-http-loader></ng-http-loader>

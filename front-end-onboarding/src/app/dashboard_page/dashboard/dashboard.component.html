@@ -1,33 +1,36 @@
-<div class="row" style="height: 100vh;">
+<div class="row content-dashboard" style="min-height: 100vh;">
     <div class="col-md-3" style="background-color: #2dcccd;padding: 40px;">
        <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 col sm-2 col-2">
                 <img src="assets/img/hackathon/icono_usuario_01.png"/>
             </div>
-            <div class="col-md-10" style="padding-left: 30px;padding-top: 5px;">
-                <p class="p-item">Usuario #01254</p>
+            <div class="col-md-10 col-sm-10 col-10" style="padding-left: 30px;padding-top: 5px;">
+                <p class="p-item">Juan Gómez</p>
                 <a href="/editar_perfil" class="nav-link a-item">Editar perfil</a>
             </div>
        </div>
        <hr style="border: 1px solid #c2cfe0;"/>
        <ul class="navbar-nav mr-auto">
-        <li class="nav-item active-item">
-          <a href="/perfil" class="nav-link item-a" routerLink="perfil"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Perfil</a>
+        <li class="nav-item active-item" (click)="onDashboard()">
+          <a class="nav-link item-a"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Perfil</a>
         </li>
         <li class="nav-item inactive-item">
           <a href="/configuracion" class="nav-link item-a" routerLink="configuracion"><img src="assets/img/hackathon/ion_settings-outline.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Configuración</a>
         </li>
         <li class="nav-item inactive-item" (click)="onDocuments()">
-            <a href="/documentos" class="nav-link item-a" routerLink="documentos"><img src="assets/img/hackathon/bx_bx-note.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Documentos</a>
+            <a class="nav-link item-a"><img src="assets/img/hackathon/bx_bx-note.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Documentos</a>
         </li>
         <li class="nav-item inactive-item">
-            <a href="/mi_empresa" class="nav-link item-a" routerLink="mi_empresa"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
+            <a class="nav-link item-a" (click)="onDashboardComplete()"><img src="assets/img/hackathon/whh_business.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Mi empresa</a>
         </li> 
       </ul>
       <hr style="border: 1px solid #c2cfe0;"/>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item inactive-item">
             <a href="/soporte" class="nav-link item-a" routerLink="soporte"><img src="assets/img/hackathon/feather_help-circle.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Soporte</a>
+        </li>
+        <li class="nav-item inactive-item">
+            <a class="nav-link item-a" (click)="onLogout()"><img src="assets/img/hackathon/feather_user.png"/>&nbsp;&nbsp;&nbsp;&nbsp;Log out</a>
         </li> 
       </ul>
     </div>
@@ -35,7 +38,7 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-4">
                 <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;box-shadow: lightgrey 0px 0px 14px 2px;">
-                    <div style="width: 100%; height: 200px;background-image: url(assets/img/hackathon/icono_usuario_02.png);background-size: cover;" ></div>
+                    <div style="width: 100%; height: 200px;background-image: url(assets/img/hackathon/icono_usuario_02.png);background-position-x: 40px;" class="profile-item"></div>
                     <button type="button" class="btn" style="width: 100%; background-color: #e1e7f0;color: #9da9bb;margin-top: 15px;font-size: 12px;">Editar mi perfil</button>
                 </div>
                 <div style="width: 100%;padding: 10px;border: 2px solid #eff0fa;margin-top: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
@@ -53,7 +56,7 @@
             </div>
             <div class="col-md-8">
                 <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;box-shadow: lightgrey 0px 0px 14px 2px;">
-                    <p style="font-size: 16px;color: #687a92;">User #01254</p>
+                    <p style="font-size: 16px;color: #687a92;">Juan Gómez</p>
                     <hr />
                     <img src="assets/img/hackathon/Perfil 01.png"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -86,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;margin-top: 10px; height: 200px;box-shadow: lightgrey 0px 0px 14px 2px;">
+                <div style="width: 100%;border: 2px solid #eff0fa;padding: 10px;margin-top: 10px; height: 200px;box-shadow: lightgrey 0px 0px 14px 2px;margin-bottom: 30px;">
                    <img src="assets/img/hackathon/Perfil 01.png"/>
                 </div>
             </div>

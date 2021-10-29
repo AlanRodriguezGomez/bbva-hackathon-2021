@@ -24,3 +24,21 @@
     font-size: 14px !important;
 }
 
+.inactive-item {
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.inactive-item:hover {
+    background-color: #88d8d8 !important;
+    border-radius: 30px;
+}
+
+@media (max-width: 575px) { 
+
+    .profile-item {
+        background-size: contain;
+        background-size: 100% 100%;
+        background-position-x: 0px !important;
+    }
+}

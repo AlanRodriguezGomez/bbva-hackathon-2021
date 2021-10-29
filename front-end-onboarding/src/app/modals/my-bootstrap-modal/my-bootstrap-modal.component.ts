@@ -7,12 +7,11 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./my-bootstrap-modal.component.css'],
   entryComponents:[
     MyBootstrapModalComponent
-  ],
+  ]
 })
 export class MyBootstrapModalComponent implements OnInit {
 
-  constructor(    public activeModal: NgbActiveModal
-    ) { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }

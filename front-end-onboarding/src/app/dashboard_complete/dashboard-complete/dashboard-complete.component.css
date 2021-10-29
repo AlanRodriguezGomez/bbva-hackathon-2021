@@ -17,6 +17,12 @@
 
 .inactive-item {
     background-color: transparent;
+    transition: 0.5s;
+}
+
+.inactive-item:hover {
+    background-color: #88d8d8 !important;
+    border-radius: 30px;
 }
 
 .a-item {
@@ -45,4 +51,22 @@
 
 .p-in p {
     margin: 0;
+}
+
+@media (max-width: 565px) {
+    .item-dashcompl {
+        min-height: 300vh;
+    }
+
+    .item-graph {
+        overflow: scroll;
+    }
+
+    .grafica {
+        left: 50px;
+    }
+
+    .vineta {
+        left: 150px;
+    }
 }

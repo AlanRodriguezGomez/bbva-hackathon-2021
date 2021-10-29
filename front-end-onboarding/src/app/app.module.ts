@@ -11,13 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { DragAndDropDirective } from './directives/drag-and-drop.directive';
-import { ProgressComponent } from './components/progress/progress.component';
-import { DetailsComponent } from './components/details/details.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { LandingComponent } from './landing_page/landing/landing.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -31,12 +27,8 @@ import { MyBootstrapModalComponent } from './modals/my-bootstrap-modal/my-bootst
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
-    ProfileComponent,
     UploadComponent,
     DragAndDropDirective,
-    ProgressComponent,
-    DetailsComponent,
     LandingComponent,
     DashboardComponent,
     DashboardCompleteComponent,
